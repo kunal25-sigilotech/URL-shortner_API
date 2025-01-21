@@ -1,11 +1,7 @@
 import mongoose from "mongoose";
+import shortid from "shortid";
 
 const urlSchema = new mongoose.Schema({
-  urlId: {
-    type: String,
-    required: [true, "urlId is required"],
-  },
-
   originalURL: {
     type: String,
     required: [true, "Original url is required"],
@@ -14,6 +10,7 @@ const urlSchema = new mongoose.Schema({
   shortURL: {
     type: String,
     required: [true, "shortURL is required"],
+    default: shortid.generate,
   },
 
   clicks: {
@@ -21,12 +18,7 @@ const urlSchema = new mongoose.Schema({
     required: [true, "Click is required"],
     default: 0,
   },
-
-  date: {
-    type: String,
-    default: Date.now(),
-  },
 });
 
-const URLModel = mongoose.model("url", urlSchema);
+const URLModel = mongoose.model("ShortURL", urlSchema);
 export default URLModel;

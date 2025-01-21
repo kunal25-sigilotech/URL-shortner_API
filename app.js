@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(cors());
 app.options("*", cors());
 
-app.post("/myAPI/v1/shorten", shorteningRouter);
+app.use("/myAPI/v1/url_shortner", shorteningRouter);
 
 app.all("*", (req, res, next) => {
   return next(
