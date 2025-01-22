@@ -1,6 +1,6 @@
+import { catchAsync } from "../utils/catchAsync.js";
 import URLModel from "../model/urlModel.js";
 import AppError from "../utils/appError.js";
-import { catchAsync } from "../utils/catchAsync.js";
 
 export const short = catchAsync(async (req, res) => {
   const newURL = await URLModel.create({ originalURL: req.body.originalURL });
@@ -17,7 +17,7 @@ export const getURL = catchAsync(async (req, res, next) => {
     return next(new AppError("failed to find the request URL", 404));
 
   foundURL.clicks++;
-  foundURL.save();
+  await foundURL.save();
 
   res.status(200).json({
     status: "success",

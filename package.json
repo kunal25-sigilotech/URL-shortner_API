@@ -7,7 +7,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "node --watch --env-file=.env server.js"
+    "dev": "node --watch --env-file=.env server.js",
+    "prod": "SET NODE_ENV=production & node --watch --env-file=.env server.js"
   },
   "devDependencies": {
     "@eslint/js": "^9.18.0",
@@ -18,7 +19,6 @@
     "cors": "^2.8.5",
     "express": "^4.21.2",
     "mongoose": "^8.9.5",
-    "nanoid": "^5.0.9",
     "shortid": "^2.2.16"
   }
 }
