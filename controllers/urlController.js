@@ -22,5 +22,6 @@ export const getURL = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: "success",
     url: foundURL.originalURL,
+    clicks: foundURL.clicks,
   });
 });
